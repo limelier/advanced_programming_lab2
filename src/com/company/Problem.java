@@ -11,19 +11,34 @@ public class Problem {
     List<Depot> depots;
     List<Client> clients;
 
+    /**
+     * Create a new problem, with no depots or clients.
+     */
     public Problem() {
         depots = new ArrayList<>();
         clients = new ArrayList<>();
     }
 
+    /**
+     * Add a depot to the problem.
+     * @param depot The depot to be added.
+     */
     public void addDepot(Depot depot) {
         depots.add(depot);
     }
 
+    /**
+     * Add a client to the problem.
+     * @param client The client to be added.
+     */
     public void addClient(Client client) {
         clients.add(client);
     }
 
+    /**
+     * Describe the problem instance as a string.
+     * @return The resulting string.
+     */
     @Override
     public String toString() {
         return "Problem{" +

@@ -26,6 +26,10 @@ public class Main {
         v3.setType(VehicleType.DRONE);
         d2.addVehicle(v3);
 
+        // tour self-sorting insert test
+        v3.tour.addTrip(c5);
+        v3.tour.addTrip(c3);
+
         Problem problem = new Problem();
         problem.addDepot(d1);
         problem.addDepot(d2);

@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author Iacobescu Tudor
@@ -34,5 +35,18 @@ public class Tour {
         return "Tour{" +
                 "trips=" + trips +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour = (Tour) o;
+        return trips.equals(tour.trips);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(trips);
     }
 }

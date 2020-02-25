@@ -28,12 +28,26 @@ public class Depot {
         vehicles.add(vehicle);
     }
 
-    
+
     @Override
     public String toString() {
         return "Depot{" +
                 "name='" + name + '\'' +
                 ", vehicles=" + vehicles +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Depot depot = (Depot) o;
+        return name.equals(depot.name) &&
+                vehicles.equals(depot.vehicles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, vehicles);
     }
 }

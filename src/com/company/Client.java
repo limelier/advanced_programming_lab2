@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 /**
  * @author Iacobescu Tudor
  */
@@ -32,5 +34,19 @@ public class Client {
                 "name='" + name + '\'' +
                 ", time=" + time +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return time == client.time &&
+                name.equals(client.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, time);
     }
 }

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 /**
  * @author Iacobescu Tudor
  */
@@ -77,5 +79,20 @@ public class Vehicle {
                 ", type=" + type +
                 ", tour=" + tour +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return name.equals(vehicle.name) &&
+                type == vehicle.type &&
+                tour.equals(vehicle.tour);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, type, tour);
     }
 }

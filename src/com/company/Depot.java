@@ -21,11 +21,16 @@ public class Depot {
     }
 
     /**
-     * Add a vehicle to the depot.
+     * Add a vehicle to the depot, if it does not already exist.
      * @param vehicle The vehicle to add to the depot.
      */
-    public void addVehicle(Vehicle vehicle) {
-        vehicles.add(vehicle);
+    public void addVehicle(Vehicle vehicle) throws IllegalArgumentException {
+        if (!vehicles.contains(vehicle)) {
+            vehicles.add(vehicle);
+        }
+        else {
+            throw new IllegalArgumentException("Attempted to add already-existing vehicle to depot.");
+        }
     }
 
 

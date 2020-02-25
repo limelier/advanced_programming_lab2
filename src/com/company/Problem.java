@@ -21,19 +21,29 @@ public class Problem {
     }
 
     /**
-     * Add a depot to the problem.
+     * Add a depot to the problem, if it does not already exist.
      * @param depot The depot to be added.
      */
-    public void addDepot(Depot depot) {
-        depots.add(depot);
+    public void addDepot(Depot depot) throws IllegalArgumentException {
+        if (!depots.contains(depot)) {
+            depots.add(depot);
+        }
+        else {
+            throw new IllegalArgumentException("Attempted to add already-existing depot to problem.");
+        }
     }
 
     /**
-     * Add a client to the problem.
+     * Add a client to the problem, if it does not already exist.
      * @param client The client to be added.
      */
     public void addClient(Client client) {
-        clients.add(client);
+        if (!clients.contains(client)) {
+            clients.add(client);
+        }
+        else {
+            throw new IllegalArgumentException("Attempted to add already-existing client to problem.");
+        }
     }
 
     @Override

@@ -69,10 +69,7 @@ public class Vehicle {
 
     ////
 
-    /**
-     * Describe the vehicle object as a string.
-     * @return The resulting string.
-     */
+
     @Override
     public String toString() {
         return "Vehicle{" +

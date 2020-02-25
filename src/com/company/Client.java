@@ -26,10 +26,6 @@ public class Client {
         return time;
     }
 
-    /**
-     * Describe the client object as a string.
-     * @return The resulting string.
-     */
     @Override
     public String toString() {
         return "Client{" +

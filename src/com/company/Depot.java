@@ -28,10 +28,7 @@ public class Depot {
         vehicles.add(vehicle);
     }
 
-    /**
-     * Describe the depot instance as a string.
-     * @return The resulting string.
-     */
+    
     @Override
     public String toString() {
         return "Depot{" +

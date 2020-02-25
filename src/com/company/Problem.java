@@ -35,10 +35,6 @@ public class Problem {
         clients.add(client);
     }
 
-    /**
-     * Describe the problem instance as a string.
-     * @return The resulting string.
-     */
     @Override
     public String toString() {
         return "Problem{" +

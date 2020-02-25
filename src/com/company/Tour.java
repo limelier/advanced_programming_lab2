@@ -29,10 +29,6 @@ public class Tour {
         trips.add(index, trip);
     }
 
-    /**
-     * Describe the trip object as a string.
-     * @return The resulting string.
-     */
     @Override
     public String toString() {
         return "Tour{" +

@@ -19,20 +19,19 @@ public class Main {
         Depot d1 = new Depot("D1");
         Depot d2 = new Depot("D2");
 
-        Vehicle v1 = new Vehicle("V1", d1, VehicleType.CAR);
-        Vehicle v2 = new Vehicle("V2", d1, VehicleType.TRUCK);
+        Vehicle v1 = new Car("V1", d1);
+        Vehicle v2 = new Truck("V2", d1);
 
         try {
-            Vehicle v4 = new Vehicle("V2", d1, VehicleType.TRUCK);
+            Vehicle v4 = new Truck("V2", d1);
         }
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
 
         // getter-setter demonstrations
-        Vehicle v3 = new Vehicle();
+        Vehicle v3 = new Drone();
         v3.setName("V3");
-        v3.setType(VehicleType.DRONE);
         d2.addVehicle(v3);
 
         // tour self-sorting insert test

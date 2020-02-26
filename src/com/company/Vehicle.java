@@ -6,9 +6,8 @@ import java.util.Objects;
  * @author Iacobescu Tudor
  */
 
-public class Vehicle {
+public abstract class Vehicle {
     private String name;
-    private VehicleType type;
 
     public Tour tour;
 
@@ -16,11 +15,9 @@ public class Vehicle {
      * Create a vehicle with a blank tour, adding it to a depot.
      * @param name The vehicle's name.
      * @param depot The depot the vehicle needs to be added to.
-     * @param type The vehicle's type.
      */
-    public Vehicle(String name, Depot depot, VehicleType type) {
+    public Vehicle(String name, Depot depot) {
         this.name = name;
-        this.type = type;
         this.tour = new Tour();
 
         depot.addVehicle(this);
@@ -29,11 +26,10 @@ public class Vehicle {
     //// for demonstration purposes
 
     /**
-     * Create a vehicle with no name, type or parent depot, and a blank tour.
+     * Create a vehicle with no name or parent depot, and a blank tour.
      */
     public Vehicle() {
         this.name = "";
-        this.type = null;
         this.tour = new Tour();
     }
 
@@ -46,14 +42,6 @@ public class Vehicle {
     }
 
     /**
-     * Setter for vehicle type.
-     * @param type Type to give the vehicle.
-     */
-    public void setType(VehicleType type) {
-        this.type = type;
-    }
-
-    /**
      * Getter for vehicle name.
      * @return Vehicle name.
      */
@@ -61,22 +49,13 @@ public class Vehicle {
         return name;
     }
 
-    /**
-     * Getter for vehicle type.
-     * @return Vehicle type.
-     */
-    public VehicleType getType() {
-        return type;
-    }
-
     ////
 
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return  "{" +
                 "name='" + name + '\'' +
-                ", type=" + type +
                 ", tour=" + tour +
                 '}';
     }
@@ -86,13 +65,11 @@ public class Vehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return name.equals(vehicle.name) &&
-                type == vehicle.type &&
-                tour.equals(vehicle.tour);
+        return name.equals(vehicle.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, tour);
+        return Objects.hash(name);
     }
 }

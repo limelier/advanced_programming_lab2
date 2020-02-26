@@ -47,12 +47,11 @@ public class Depot {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Depot depot = (Depot) o;
-        return name.equals(depot.name) &&
-                vehicles.equals(depot.vehicles);
+        return name.equals(depot.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, vehicles);
+        return Objects.hash(name);
     }
 }

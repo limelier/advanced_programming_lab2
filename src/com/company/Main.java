@@ -1,5 +1,7 @@
 package com.company;
 
+import java.security.InvalidParameterException;
+
 /**
  * @author Iacobescu Tudor
  */
@@ -20,6 +22,13 @@ public class Main {
         Vehicle v1 = new Vehicle("V1", d1, VehicleType.CAR);
         Vehicle v2 = new Vehicle("V2", d1, VehicleType.TRUCK);
 
+        try {
+            Vehicle v4 = new Vehicle("V2", d1, VehicleType.TRUCK);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
         // getter-setter demonstrations
         Vehicle v3 = new Vehicle();
         v3.setName("V3");
@@ -33,11 +42,25 @@ public class Main {
         Problem problem = new Problem();
         problem.addDepot(d1);
         problem.addDepot(d2);
+        try {
+            Depot d3 = new Depot("D2");
+            problem.addDepot(d3);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
         problem.addClient(c1);
         problem.addClient(c2);
         problem.addClient(c3);
         problem.addClient(c4);
         problem.addClient(c5);
+        try {
+            Client c6 = new Client("C5", 3);
+            problem.addClient(c6);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
         System.out.println(problem);
     }

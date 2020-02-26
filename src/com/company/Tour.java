@@ -19,7 +19,7 @@ public class Tour {
     }
 
     /**
-     * Add a new trip (client) to the tour.
+     * Add a new trip (client) to the tour, keeping the list of trips ordered by time ascending.
      * @param trip The trip to be added.
      */
     public void addTrip(Client trip) {

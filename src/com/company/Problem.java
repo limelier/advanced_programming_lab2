@@ -46,6 +46,20 @@ public class Problem {
         }
     }
 
+    /**
+     * Returns an array of all the vehicles in all of the problem's depots.
+     * @return The vehicle array.
+     */
+    public Vehicle[] getAllVehicles() {
+        List<Vehicle> vehicles = new ArrayList<>();
+        for (Depot depot : depots) {
+            vehicles.addAll(depot.getVehicles());
+        }
+        Vehicle[] array = new Vehicle[vehicles.size()];
+        vehicles.toArray(array);
+        return array;
+    }
+
     @Override
     public String toString() {
         return "Problem{" +

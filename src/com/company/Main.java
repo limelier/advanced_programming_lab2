@@ -1,6 +1,7 @@
 package com.company;
 
 import java.security.InvalidParameterException;
+import java.util.Arrays;
 
 /**
  * @author Iacobescu Tudor
@@ -62,5 +63,8 @@ public class Main {
         }
 
         System.out.println(problem);
+
+        Vehicle[] vehicles = problem.getAllVehicles();
+        System.out.println(Arrays.toString(vehicles));
     }
 }

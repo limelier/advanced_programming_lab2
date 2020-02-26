@@ -33,6 +33,13 @@ public class Depot {
         }
     }
 
+    /**
+     * Returns a mutable list of the depot's vehicles.
+     * @return The vehicle list.
+     */
+    public List<Vehicle> getVehicles() { // allows mutation
+        return vehicles;
+    }
 
     @Override
     public String toString() {

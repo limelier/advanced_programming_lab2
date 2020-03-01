@@ -9,8 +9,8 @@ import java.util.Objects;
  */
 
 public class Problem {
-    List<Depot> depots;
-    List<Client> clients;
+    public List<Depot> depots;
+    public List<Client> clients;
 
     /**
      * Create a new problem, with no depots or clients.

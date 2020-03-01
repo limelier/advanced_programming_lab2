@@ -12,6 +12,7 @@ public class Client {
 
     /**
      * Create a client with the given name and desired trip time.
+     *
      * @param name Client's name.
      * @param time The time the client wishes to take their trip.
      */
@@ -22,10 +23,20 @@ public class Client {
 
     /**
      * Getter for the time the client wishes to take their trip.
-      * @return The time.
+     *
+     * @return The time.
      */
     public int getTime() {
         return time;
+    }
+
+    /**
+     * Getter for the client's name.
+     *
+     * @return The name.
+     */
+    public String getName() {
+        return name;
     }
 
     @Override

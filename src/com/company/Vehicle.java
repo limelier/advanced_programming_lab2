@@ -9,7 +9,7 @@ import java.util.Objects;
 public abstract class Vehicle {
     private String name;
 
-    public Tour tour;
+    private Tour tour;
 
     /**
      * Create a vehicle with a blank tour, adding it to a depot.
@@ -51,6 +51,30 @@ public abstract class Vehicle {
 
     ////
 
+    /**
+     * Checks if a client can fit in the vehicle's tour without overlaps.
+     * @param client The client to check for.
+     * @return Whether the client can fit.
+     */
+    public boolean canAccommodateClient(Client client) {
+        return !tour.isTimeSlotTaken(client);
+    }
+
+    /**
+     * Add a client to the vehicle's tour.
+     * @param client The client to add.
+     */
+    public void addClient(Client client) {
+        tour.addTrip(client);
+    }
+
+    /**
+     * Getter for the vehicle's tour as a string describing the names of the serviced clients.
+     * @return The tour.
+     */
+    public String getTour() {
+        return tour.getTripsList();
+    }
 
     @Override
     public String toString() {

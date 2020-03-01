@@ -22,49 +22,18 @@ public class Main {
 
         Vehicle v1 = new Car("V1", d1);
         Vehicle v2 = new Truck("V2", d1);
-
-        try {
-            Vehicle v4 = new Truck("V2", d1);
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-
-        // getter-setter demonstrations
-        Vehicle v3 = new Drone();
-        v3.setName("V3");
-        d2.addVehicle(v3);
-
-        // tour self-sorting insert test
-        v3.tour.addTrip(c5);
-        v3.tour.addTrip(c3);
+        Vehicle v3 = new Drone("V3", d2);
 
         Problem problem = new Problem();
         problem.addDepot(d1);
         problem.addDepot(d2);
-        try {
-            Depot d3 = new Depot("D2");
-            problem.addDepot(d3);
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
         problem.addClient(c1);
         problem.addClient(c2);
         problem.addClient(c3);
         problem.addClient(c4);
         problem.addClient(c5);
-        try {
-            Client c6 = new Client("C5", 3);
-            problem.addClient(c6);
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
 
-        System.out.println(problem);
-
-        Vehicle[] vehicles = problem.getAllVehicles();
-        System.out.println(Arrays.toString(vehicles));
+        Solution solution = new Solution(problem);
+        System.out.println(solution);
     }
 }

@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Iacobescu Tudor
@@ -18,7 +17,8 @@ public class Tour {
     }
 
     /**
-     * Add a new trip (client) to the tour.
+     * Add a new trip (client) to the tour, keeping the list of trips ordered by time ascending.
+     *
      * @param trip The trip to be added.
      */
     public void addTrip(Client trip) {
@@ -29,14 +29,48 @@ public class Tour {
         trips.add(index, trip);
     }
 
+    static final private Comparator<Client> compareByTime = Comparator.comparingInt(Client::getTime);
+
     /**
-     * Describe the trip object as a string.
-     * @return The resulting string.
+     * Checks if the slot a client requests is taken in a tour.
+     *
+     * @param trip The client/trip to check for.
+     * @return Whether the tour can accommodate the client.
      */
+    public boolean isTimeSlotTaken(Client trip) {
+        return Collections.binarySearch(trips, trip, compareByTime) >= 0;
+    }
+
+    /**
+     * Get a list of the names of the clients in the tour as a string, with an arrow after each one.
+     *
+     * @return The list.
+     */
+    public String getTripsList() {
+        StringBuilder string = new StringBuilder();
+        for (Client trip : trips) {
+            string.append(trip.getName()).append(" -> ");
+        }
+        return string.toString();
+    }
+
     @Override
     public String toString() {
         return "Tour{" +
                 "trips=" + trips +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tour tour = (Tour) o;
+        return trips.equals(tour.trips);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(trips);
     }
 }

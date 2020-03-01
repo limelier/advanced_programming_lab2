@@ -1,24 +1,24 @@
 package com.company;
 
+import java.util.Objects;
+
 /**
  * @author Iacobescu Tudor
  */
 
-public class Vehicle {
+public abstract class Vehicle {
     private String name;
-    private VehicleType type;
 
-    public Tour tour;
+    private Tour tour;
 
     /**
      * Create a vehicle with a blank tour, adding it to a depot.
-     * @param name The vehicle's name.
+     *
+     * @param name  The vehicle's name.
      * @param depot The depot the vehicle needs to be added to.
-     * @param type The vehicle's type.
      */
-    public Vehicle(String name, Depot depot, VehicleType type) {
+    public Vehicle(String name, Depot depot) {
         this.name = name;
-        this.type = type;
         this.tour = new Tour();
 
         depot.addVehicle(this);
@@ -27,16 +27,16 @@ public class Vehicle {
     //// for demonstration purposes
 
     /**
-     * Create a vehicle with no name, type or parent depot, and a blank tour.
+     * Create a vehicle with no name or parent depot, and a blank tour.
      */
     public Vehicle() {
         this.name = "";
-        this.type = null;
         this.tour = new Tour();
     }
 
     /**
      * Setter for vehicle name.
+     *
      * @param name Name to give the vehicle.
      */
     public void setName(String name) {
@@ -44,41 +44,62 @@ public class Vehicle {
     }
 
     /**
-     * Setter for vehicle type.
-     * @param type Type to give the vehicle.
-     */
-    public void setType(VehicleType type) {
-        this.type = type;
-    }
-
-    /**
      * Getter for vehicle name.
+     *
      * @return Vehicle name.
      */
     public String getName() {
         return name;
     }
 
-    /**
-     * Getter for vehicle type.
-     * @return Vehicle type.
-     */
-    public VehicleType getType() {
-        return type;
-    }
-
     ////
 
     /**
-     * Describe the vehicle object as a string.
-     * @return The resulting string.
+     * Checks if a client can fit in the vehicle's tour without overlaps.
+     *
+     * @param client The client to check for.
+     * @return Whether the client can fit.
      */
+    public boolean canAccommodateClient(Client client) {
+        return !tour.isTimeSlotTaken(client);
+    }
+
+    /**
+     * Add a client to the vehicle's tour.
+     *
+     * @param client The client to add.
+     */
+    public void addClient(Client client) {
+        tour.addTrip(client);
+    }
+
+    /**
+     * Getter for the vehicle's tour as a string describing the names of the serviced clients.
+     *
+     * @return The tour.
+     */
+    public String getTour() {
+        return tour.getTripsList();
+    }
+
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return "{" +
                 "name='" + name + '\'' +
-                ", type=" + type +
                 ", tour=" + tour +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return name.equals(vehicle.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

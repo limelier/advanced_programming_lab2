@@ -17,18 +17,9 @@ public class Main {
         Depot d1 = new Depot("D1");
         Depot d2 = new Depot("D2");
 
-        Vehicle v1 = new Vehicle("V1", d1, VehicleType.CAR);
-        Vehicle v2 = new Vehicle("V2", d1, VehicleType.TRUCK);
-
-        // getter-setter demonstrations
-        Vehicle v3 = new Vehicle();
-        v3.setName("V3");
-        v3.setType(VehicleType.DRONE);
-        d2.addVehicle(v3);
-
-        // tour self-sorting insert test
-        v3.tour.addTrip(c5);
-        v3.tour.addTrip(c3);
+        Vehicle v1 = new Car("V1", d1);
+        Vehicle v2 = new Truck("V2", d1);
+        Vehicle v3 = new Drone("V3", d2);
 
         Problem problem = new Problem();
         problem.addDepot(d1);
@@ -39,6 +30,7 @@ public class Main {
         problem.addClient(c4);
         problem.addClient(c5);
 
-        System.out.println(problem);
+        Solution solution = new Solution(problem);
+        System.out.println(solution);
     }
 }

@@ -18,6 +18,7 @@ public class Tour {
 
     /**
      * Add a new trip (client) to the tour, keeping the list of trips ordered by time ascending.
+     *
      * @param trip The trip to be added.
      */
     public void addTrip(Client trip) {
@@ -32,6 +33,7 @@ public class Tour {
 
     /**
      * Checks if the slot a client requests is taken in a tour.
+     *
      * @param trip The client/trip to check for.
      * @return Whether the tour can accommodate the client.
      */

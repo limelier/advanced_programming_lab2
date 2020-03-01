@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Iacobescu Tudor
@@ -22,32 +21,33 @@ public class Problem {
 
     /**
      * Add a depot to the problem, if it does not already exist.
+     *
      * @param depot The depot to be added.
      */
     public void addDepot(Depot depot) throws IllegalArgumentException {
         if (!depots.contains(depot)) {
             depots.add(depot);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Attempted to add already-existing depot to problem.");
         }
     }
 
     /**
      * Add a client to the problem, if it does not already exist.
+     *
      * @param client The client to be added.
      */
     public void addClient(Client client) {
         if (!clients.contains(client)) {
             clients.add(client);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Attempted to add already-existing client to problem.");
         }
     }
 
     /**
      * Returns an array of all the vehicles in all of the problem's depots.
+     *
      * @return The vehicle array.
      */
     public Vehicle[] getAllVehicles() {

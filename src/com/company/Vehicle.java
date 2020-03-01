@@ -13,7 +13,8 @@ public abstract class Vehicle {
 
     /**
      * Create a vehicle with a blank tour, adding it to a depot.
-     * @param name The vehicle's name.
+     *
+     * @param name  The vehicle's name.
      * @param depot The depot the vehicle needs to be added to.
      */
     public Vehicle(String name, Depot depot) {
@@ -35,6 +36,7 @@ public abstract class Vehicle {
 
     /**
      * Setter for vehicle name.
+     *
      * @param name Name to give the vehicle.
      */
     public void setName(String name) {
@@ -43,6 +45,7 @@ public abstract class Vehicle {
 
     /**
      * Getter for vehicle name.
+     *
      * @return Vehicle name.
      */
     public String getName() {
@@ -53,6 +56,7 @@ public abstract class Vehicle {
 
     /**
      * Checks if a client can fit in the vehicle's tour without overlaps.
+     *
      * @param client The client to check for.
      * @return Whether the client can fit.
      */
@@ -62,6 +66,7 @@ public abstract class Vehicle {
 
     /**
      * Add a client to the vehicle's tour.
+     *
      * @param client The client to add.
      */
     public void addClient(Client client) {
@@ -70,6 +75,7 @@ public abstract class Vehicle {
 
     /**
      * Getter for the vehicle's tour as a string describing the names of the serviced clients.
+     *
      * @return The tour.
      */
     public String getTour() {
@@ -78,7 +84,7 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return  "{" +
+        return "{" +
                 "name='" + name + '\'' +
                 ", tour=" + tour +
                 '}';

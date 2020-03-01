@@ -13,6 +13,7 @@ public class Depot {
 
     /**
      * Creates a depot with the specified name, and no vehicles.
+     *
      * @param name The depot's name.
      */
     public Depot(String name) {
@@ -22,19 +23,20 @@ public class Depot {
 
     /**
      * Add a vehicle to the depot, if it does not already exist.
+     *
      * @param vehicle The vehicle to add to the depot.
      */
     public void addVehicle(Vehicle vehicle) throws IllegalArgumentException {
         if (!vehicles.contains(vehicle)) {
             vehicles.add(vehicle);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Attempted to add already-existing vehicle to depot.");
         }
     }
 
     /**
      * Returns a mutable list of the depot's vehicles.
+     *
      * @return The vehicle list.
      */
     public List<Vehicle> getVehicles() { // allows mutation
@@ -43,6 +45,7 @@ public class Depot {
 
     /**
      * Getter for the depot's name.
+     *
      * @return The name.
      */
     public String getName() {
